@@ -1,5 +1,3 @@
-lightwave-scratch
-===
 Demonstration Scratch 2.0 extensions for LightWave
 
 # NonStop Explorer

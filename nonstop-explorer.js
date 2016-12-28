@@ -12,9 +12,8 @@
 
       $.ajax({
           url: "http://lightwave-server.nuwavetech.io/explore/v1/cpu",
-          success: function( data ) {
-            var json = JSON.parse( data );
-            console.log( "cpustatus=" + data );
+          success: function( json ) {
+            console.log( "cpustatus=" + JSON.stringify( json ) );
             callback( json );
           }   //  success
       });

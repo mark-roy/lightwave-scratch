@@ -39,7 +39,7 @@
         [ 'R', 'Get CPU Count', 'getCpuStatus' ],
         [ 'r', 'Get busy% for CPU %n', 'getCpuBusy', 0 ]
       ],
-      url: 'https://mark-roy.github.io/lightwave-scratch/README.md'
+      url: 'https://mark-roy.github.io/lightwave-scratch'
     };
 
     // Register the extension

@@ -26,7 +26,7 @@
     };   //  getCpuStatus
 
     ext.getCpuBusy = function( processor ) {
-      if ( cpuStatus.cpuList && cpuStatus.cpuList.cpu.length < processor )
+      if ( cpuStatus.cpuList && cpuStatus.cpuList.cpu.length > processor )
         return cpuStatus.cpuList.cpu[processor].busy;
       else
         return 'error';

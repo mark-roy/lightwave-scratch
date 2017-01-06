@@ -16,7 +16,7 @@
     
     ext.getCpuStatus = function( server, callback ) {
       $.ajax({
-          url: "http://' + server + '/explore/v1/cpu",
+          url: 'http://' + server + '/explore/v1/cpu',
           success: function( json ) {
             console.log( "cpustatus=" + JSON.stringify( json ) );
             cpuStatus = json;

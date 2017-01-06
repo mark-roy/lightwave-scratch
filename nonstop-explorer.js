@@ -14,27 +14,20 @@
     
     var cpuStatus = {};
     
-    ext.getCpuStatus = function( callback ) {
+    ext.getCpuStatus = function( server, callback ) {
       $.ajax({
-          url: "http://lightwave-server.nuwavetech.io/explore/v1/cpu",
+          url: "http://' + server + '/explore/v1/cpu",
           success: function( json ) {
             console.log( "cpustatus=" + JSON.stringify( json ) );
             cpuStatus = json;
-            callback( cpuStatus.cpuList.cpuCount );
+            callback();
           }   //  success
       });
     };   //  getCpuStatus
 
-    ext.getCpuStatusList = function( callback ) {
-      $.ajax({
-          url: "http://nskit06.nuwavetech.io/explore/v1/cpu",
-          success: function( json ) {
-            console.log( "cpustatus=" + JSON.stringify( json ) );
-            cpuStatus = json;
-            callback( cpuStatus.cpuList.cpuCount );
-          }   //  success
-      });
-    };   //  getCpuStatus
+    ext.getCpuCount = function( callback ) {
+      callback( cpuStatus.cpuList.cpuCount );
+    };   //  getCpuCount
 
     ext.getCpuBusy = function( processor ) {
       if ( cpuStatus.cpuList && cpuStatus.cpuList.cpu.length > processor )
@@ -47,8 +40,8 @@
     var descriptor = {
       blocks: [
         // Block type, block name, function name
-        [ 'R', 'Get CPU Status', 'getCpuStatus' ],
-        [ 'R', 'Get CPU Status List', 'getCpuStatusList' ],
+        [ 'w', 'Get CPU Status from %s', 'getCpuStatus', 'lightwave-server.nuwavetech.io' ],
+        [ 'R', 'Get CPU Count', 'getCpuCount' ],
         [ 'r', 'Get busy% for CPU %n', 'getCpuBusy', 0 ]
       ],
       url: 'https://mark-roy.github.io/lightwave-scratch'

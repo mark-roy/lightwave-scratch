@@ -7,7 +7,8 @@ The extensions provides the following blocks:
 
 | Block Title | Description |
 | --- | --- |
-| Get CPU Count | get busy rates for CPUs and returns the number of CPUs  |
+| Get CPU Status | get CPU status |
+| Get CPU Count | get the number of CPUs  |
 | Get busy % for CPU n | returns the busy rate for the requested CPU |
 
-You can open the sample project using this link: http://scratchx.org/?url=https://mark-roy.github.io/lightwave-scratch/NonStopExplorer.sbx
+You can open the sample project using this link: <http://scratchx.org/?url=https://mark-roy.github.io/lightwave-scratch/NonStopExplorer.sbx>

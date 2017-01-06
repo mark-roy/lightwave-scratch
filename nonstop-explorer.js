@@ -25,6 +25,17 @@
       });
     };   //  getCpuStatus
 
+    ext.getCpuStatusList = function( callback ) {
+      $.ajax({
+          url: "http://nskit06.nuwavetech.io/explore/v1/cpu",
+          success: function( json ) {
+            console.log( "cpustatus=" + JSON.stringify( json ) );
+            cpuStatus = json;
+            callback( cpuStatus.cpuList.cpuCount );
+          }   //  success
+      });
+    };   //  getCpuStatus
+
     ext.getCpuBusy = function( processor ) {
       if ( cpuStatus.cpuList && cpuStatus.cpuList.cpu.length > processor )
         return cpuStatus.cpuList.cpu[processor].busy;
@@ -36,7 +47,8 @@
     var descriptor = {
       blocks: [
         // Block type, block name, function name
-        [ 'R', 'Get CPU Count', 'getCpuStatus' ],
+        [ 'R', 'Get CPU Status', 'getCpuStatus' ],
+        [ 'R', 'Get CPU Status List', 'getCpuStatusList' ],
         [ 'r', 'Get busy% for CPU %n', 'getCpuBusy', 0 ]
       ],
       url: 'https://mark-roy.github.io/lightwave-scratch'
